@@ -10,11 +10,11 @@ import formatNumber from 'utils/formatNumber.js'
 export default function Hero(props) {
     function showMostPicked() {
         window.scrollTo({
-            top: props.refMostPicked.current.top - 30,
-            behavior: "smooth"
-        })
+          top: props.refMostPicked.current.offsetTop - 30,
+          behavior: "smooth",
+        });
     }
-
+    
     return (
         <section className="container pt-4">
             <div className="row pt-4">
