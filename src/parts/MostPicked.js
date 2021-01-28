@@ -3,14 +3,20 @@ import Button from 'elements/Button'
 
 export default function MostPicked(props) {
     return (
-        <section className="container">
+        <section 
+            ref={props.refMostPicked}
+            className="container"
+            style={{height: 2000}}
+            >
             <h4 className="mb-3">Most Picked</h4>
                 <div className="container-grid">
                     {
                         props.data.map( (item, index) => {
                             return (
-                                <div className={`item column-4${(index === 0 ? " row-2" : " row-1" )}`}>
-                                    <div className="card">
+                                <div
+                                    key={`mostpicked-${index}`} 
+                                    className={`item column-4${(index === 0 ? " row-2" : " row-1" )}`}>
+                                    <div className="card card-feature">
                                         <div className="tag">
                                             ${item.price}
                                             <span className="font-weight-light">per {item.unit}</span>
@@ -26,10 +32,10 @@ export default function MostPicked(props) {
                                             >
                                                 {item.name}
                                             </Button>
-                                        </div>        
-                                        <span>
-                                            {item.city}, {item.country}
-                                        </span>
+                                            <span>
+                                                {item.city}, {item.country}
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>            
                             )
