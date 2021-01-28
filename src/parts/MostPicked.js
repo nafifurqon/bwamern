@@ -6,7 +6,6 @@ export default function MostPicked(props) {
         <section 
             ref={props.refMostPicked}
             className="container"
-            style={{height: 2000}}
             >
             <h4 className="mb-3">Most Picked</h4>
                 <div className="container-grid">
