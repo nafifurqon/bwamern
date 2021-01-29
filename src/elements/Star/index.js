@@ -1,12 +1,12 @@
 import React from 'react'
 import propTypes from 'prop-types'
 
-export default function Star({value, height, width, spacing}) {
+export default function Star({value, height, width, spacing, className}) {
     const decimals = Number(value) % 1;
     
     const star = [];
     let leftPos = 0;
-    for (let index = 0; index < 5 && index < value - decimals && index; index++) {
+    for (let index = 0; index < 5 && index < value - decimals; index++) {
         leftPos = leftPos + width;
         star.push(
             <div 
@@ -16,7 +16,7 @@ export default function Star({value, height, width, spacing}) {
             ></div>
         );
     }
-    if(decimals > 0 && value <= 5) {
+    if(decimals > 0 && value <= 5)
         star.push(
             <div 
                 className="star"
@@ -24,12 +24,26 @@ export default function Star({value, height, width, spacing}) {
                 style={{left: leftPos, width: width - spacing}}
             ></div>
         );
+    
+    const starPlaceholder = []
+    for (let index = 0; index < 5 && index < value - decimals; index++) {
+        starPlaceholder.push(
+            <div 
+                className="star placeholder"
+                key={`starPlaceholder-${index}`}
+                style={{left: index * width, width: width, marginRight: spacing}}
+            ></div>
+        );
     }
-
+    
+    
     return (
-        <div>
-            
-        </div>
+        <>
+            <div className={["stars", className].join(" ")} style={{height: height}}>
+                {starPlaceholder}
+                {star}
+            </div>
+        </>
     )
 }
 
