@@ -55,10 +55,10 @@ test("Should have tag <input/> and has className .form-control", () => {
 test("Should show date picker when click input field", () => {
     const { container, input } = setup();
 
-    // screen.debug)();
+    // screen.debug();
     fireEvent.click(input, { button: 1 });
-    const datePickerWrapper = container.querySelector(`.date-picker-wrapper`);
-    // screen.debug)();
+    const datePickerWrapper = container.querySelector(`.date-range-wrapper`);
+    // screen.debug();
 
     expect(datePickerWrapper).toBeInTheDocument();
 });
