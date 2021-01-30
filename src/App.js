@@ -1,5 +1,6 @@
 import "assets/scss/style.scss";
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { createBrowserHistory } from "history";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import "assets/scss/style.scss";
 import LandingPage from "pages/LandingPage";
 
@@ -7,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Route path="/" component={LandingPage}></Route>
+          <Route path="/" component={LandingPage} />
       </Router>
     </div>
   );

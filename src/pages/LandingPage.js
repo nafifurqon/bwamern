@@ -12,7 +12,6 @@ export default class LandingPage extends Component {
         super(props);
         this.refMostPicked = React.createRef();
     }
-    
     render() {
         return (
             <>
