@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {useState} from 'react'
 import propTypes from 'prop-types'
 import './index.scss'
 
-export default function IText(props) {
+export default function Text(props) {
     const {
         value,
         type,
@@ -26,7 +26,7 @@ export default function IText(props) {
                 name: name,
                 value: event.target.value
             }
-        }
+        };
 
         if (type === "email") {
             if (!pattern.test(event.target.value)) setHasError(errorResponse);
@@ -35,9 +35,7 @@ export default function IText(props) {
 
         if (type === "tel") {
             if (event.target.validity.valid) props.onChange(target);
-        } 
-        
-        else {
+        } else {
             props.onChange(target);
         }
     };
