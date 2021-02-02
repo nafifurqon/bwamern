@@ -10,7 +10,7 @@ function App() {
       <Router>
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/properties/:id" component={DetailsPage} />
-          <Route path="/checkout" component={Checkout} />
+          <Route exact path="/checkout" component={Checkout} />
       </Router>
     </div>
   );

@@ -19,8 +19,8 @@ export default function Payment(props) {
                         <Fade delay={300}>
                             <p className="mb-4">Transfer Pembayaran:</p>
                             <p>Tax: {tax}%</p>
-                            <p>Sub total: {subTotal} USD</p>
-                            <p>Total: {grandTotal} USD</p>
+                            <p>Sub total: ${subTotal} USD</p>
+                            <p>Total: ${grandTotal} USD</p>
                             
                             <div className="row mt-4">
                                 <div className="col-3 text-right">
