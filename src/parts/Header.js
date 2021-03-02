@@ -4,6 +4,8 @@ import BrandIcon from 'parts/IconText'
 import Fade from 'react-reveal/Fade'
 
 export default function Header(props) {
+    console.log('params: ',props)
+    
     const getNavLinkClass = path => {
         return props.location.pathname === path ? " active" : "";
     };
