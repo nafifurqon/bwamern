@@ -5,7 +5,7 @@ import './index.scss'
 export default function File(props) {
     const [FileName, setFileName] = useState("");
     const {
-        value,
+        
         placeholder,
         name,
         accept,
@@ -41,12 +41,12 @@ export default function File(props) {
                     name={name}
                     className="d-none"
                     type="file"
-                    value={value}
-                    onChange={props.onChange}
+                    value={FileName}
+                    onChange={onChange}
                 />
                 <input 
-                    onClick={() => refInputFile.current.click}
-                    defaultValue={value}
+                    onClick={() => refInputFile.current.click()}
+                    defaultValue={FileName}
                     placeholder={placeholder}
                     className={["form-control", inputClassName].join(" ")}
                 />
