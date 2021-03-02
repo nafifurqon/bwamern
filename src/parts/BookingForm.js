@@ -63,18 +63,17 @@ export default class BookingForm extends Component {
         }
     }
     
-    // startBooking = () => {
-    //     const { data } = this.state;
-    //     this.props.startBooking({
-    //       _id: this.props.itemDetails._id,
-    //       duration: data.duration,
-    //       date: {
-    //         startDate: data.date.startDate,
-    //         endDate: data.date.endDate,
-    //       },
-    //     })
-    //     this.props.history.push("/checkout");
-    //   }
+    startBooking = () => {
+        const { data } = this.state;
+        this.props.startBooking({
+          _id: this.props.itemDetails._id,
+          duration: data.duration,
+          date: {
+            startDate: data.date.startDate,
+            endDate: data.date.endDate,
+          },
+        });
+      }
 
     render() {
         const { data } = this.state;
@@ -123,7 +122,7 @@ export default class BookingForm extends Component {
                     hasShadow
                     isPrimary
                     isBlock
-                    onClick={startBooking}
+                    onClick={this.startBooking}
                 >
                     Continue to Book
                 </Button>
