@@ -10,6 +10,6 @@ export default function (state = initialState, action) {
                 ...action.payload
             }
         default:
-            return;
+            return state;
     }
 }

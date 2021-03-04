@@ -18,27 +18,33 @@ class LandingPage extends Component {
         window.title = "Staycation | Home";
         window.scrollTo(0,0);
         
-        if(!this.props.page.landingPage){
-            this.props.fetchPage(`https://nafi-staycation-backend.herokuapp.com/api/v1/member/landing-page`, 'landingPage')
-        }
+        if(!this.props.page.landingPage)
+        this.props.fetchPage(
+            `${process.env.REACT_APP_HOST}/api/v1/member/landing-page`, 
+            "landingPage"
+        )
     };
 
     render() {
         const { page } = this.props;
+
+        console.log(page);
+
+        if(!page.hasOwnProperty('landingPage')) return null;
 
         return (
             <>
                 <Header {...this.props}></Header>
                 <Hero 
                     refMostPicked={this.refMostPicked}
-                    data={page.hero} 
+                    data={page.landingPage.hero} 
                 />
                 <MostPicked 
                     refMostPicked={this.refMostPicked}
-                    data={page.mostPicked} 
+                    data={page.landingPage.mostPicked} 
                 />
-                <Categories data={page.categories}  />
-                <Testimony data={page.testimonial} />
+                <Categories data={page.landingPage.category}  />
+                <Testimony data={page.landingPage.testimonial} />
                 <Footer />
             </>
         )   
@@ -46,7 +52,7 @@ class LandingPage extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    page: state.page ? state.page.landingPage : null
+    page: state.page,
 })
 
 export default connect(mapStateToProps, {fetchPage})(LandingPage)
