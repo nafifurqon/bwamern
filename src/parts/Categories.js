@@ -4,6 +4,8 @@ import Fade from 'react-reveal/Fade';
 
 export default function Categories({data}) {
     return data.map((category, index1) => {
+        if(category.itemId.length === 0) return null
+        
         return(
             <section className="container" key={`category-${index1}`}>
                 <Fade bottom>
@@ -12,13 +14,6 @@ export default function Categories({data}) {
                     </h4>
                     <div className="container-grid">
                         {
-                            category.itemId.length === 0 ? (
-                                <div className="row">
-                                    <div className="col-auto align-items-center">
-                                        There is no property at this category.
-                                    </div>
-                                </div> 
-                        ) : 
                         (
                             category.itemId.map((item, index2) => {
                                 return(
@@ -38,7 +33,7 @@ export default function Categories({data}) {
                                                 }
                                                 <figure className="img-wrapper" style={{height: 180}}>
                                                     <img 
-                                                        src={`${process.env.REACT_APP_HOST}/${item.imageId[0].imageUrl}`} alt={item.title} className="img-cover" 
+                                                        src={item.imageId[0] ? `${process.env.REACT_APP_HOST}/${item.imageId[0].imageUrl}` : ""} alt={item.title} className="img-cover" 
                                                     />
                                                 </figure>
                                                 <div className="meta-wrapper">
