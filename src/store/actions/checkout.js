@@ -6,3 +6,11 @@ export const checkoutBooking = (payload) => (dispatch) => {
         payload: payload
     });
 };
+
+export const submitBooking = (payload) => () => {
+    return axios.post(
+        `https://nafi-staycation-backend.herokuapp.com/api/v1/member/booking-page`, 
+        payload, 
+        { headers: "multipart/form-data"}
+    )
+};
