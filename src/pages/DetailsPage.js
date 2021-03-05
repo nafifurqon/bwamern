@@ -6,9 +6,8 @@ import PageDetailTitle from 'parts/PageDetailTitle'
 import FeaturedImage from 'parts/FeaturedImage'
 import PageDetailDescription from 'parts/PageDetailDescription'
 import BookingForm from 'parts/BookingForm'
-import Categories from 'parts/Categories'
+import Activities from 'parts/Activities'
 import Testimony from 'parts/Testimony'
-import ItemDetails from 'json/itemDetails.json'
 import { connect } from 'react-redux'
 import { checkoutBooking } from 'store/actions/checkout'
 import { fetchPage }  from 'store/actions/page'
@@ -54,12 +53,15 @@ class DetailsPage extends Component {
                         </div>
                         <div className="col-5">
                             <Fade bottom>
-                                <BookingForm itemDetails={page[match.params.id]} startBooking={this.props.checkoutBooking} />
+                                <BookingForm 
+                                    itemDetails={page[match.params.id]} 
+                                    startBooking={this.props.checkoutBooking} 
+                                />
                             </Fade>
                         </div>
                     </div>
                 </section>
-                <Categories data={page[match.params.id].activityId}/>
+                <Activities data={page[match.params.id].activityId}/>
                 <Testimony data={page[match.params.id].testimonial}/>
                 <Footer />
             </>
