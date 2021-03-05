@@ -52,18 +52,18 @@ class Checkout extends Component {
         payload.append("phoneNumber", data.phone);
         payload.append("idItem", checkout._id);
         payload.append("duration", checkout.duration);
-        payload.append("bookingStartDate", checkout.startDate);
-        payload.append("bookingEndDate", checkout.endDate);
+        payload.append("bookingStartDate", checkout.date.startDate);
+        payload.append("bookingEndDate", checkout.date.endDate);
         payload.append("accountHolder", data.bankHolder);
         payload.append("bankFrom", data.bankName);
         payload.append("imageUrl", data.proofPayment[0]);
-        payload.append("bankId", checkout.bankId);
+        // payload.append("bankId", checkout.bankId);
         
         this.props.submitBooking(payload)
         .then(() => {
-            nextStep()
-        }).catch((err) => {
-            
+            nextStep();
+        }).catch((error) => {
+            console.log(error);
         });
     }
 
