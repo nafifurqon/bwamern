@@ -11,7 +11,6 @@ import Stepper, {
 import BookingInformation from 'parts/Checkout/BookingInformation'
 import Payment from 'parts/Checkout/Payment'
 import Completed from 'parts/Checkout/Completed'
-import ItemDetails from 'json/itemDetails.json'
 import { connect } from 'react-redux'
 import { submitBooking } from 'store/actions/checkout'
 
@@ -39,6 +38,7 @@ class Checkout extends Component {
     
     componentDidMount() {
         window.scroll(0,0);
+        document.title = "Staycation | Checkout";
     };
 
     _Submit = (nextStep) => {
@@ -62,9 +62,7 @@ class Checkout extends Component {
         this.props.submitBooking(payload)
         .then(() => {
             nextStep();
-        }).catch((error) => {
-            console.log(error);
-        });
+        })
     }
 
     render() {
@@ -131,7 +129,7 @@ class Checkout extends Component {
         return (
             <>
                 <Header isCentered />
-                <Stepper steps={steps}>
+                <Stepper steps={steps} initialStep="bookingInformation">
                     {
                         (prevStep, nextStep, CurrentStep, steps) => (
                             <>
@@ -169,7 +167,7 @@ class Checkout extends Component {
                                             type="link"
                                             isBlock
                                             isLight
-                                            href={`/properties/${ItemDetails._id}`}
+                                            href={`/properties/${checkout._id}`}
                                         >
                                             Cancel
                                         </Button>
